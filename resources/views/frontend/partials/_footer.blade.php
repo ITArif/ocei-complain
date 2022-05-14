@@ -7,11 +7,10 @@
             <div id="footer-menu" class="clearfix">
                 <div class="col-xs-12 col-md-7 footer-left">
                     <ul class="list-inline">
-                        <li><a href="#">Ocei সম্বন্ধে</a></li>
-                        <li><a href="#">ব্যবহার নির্দেশিকা</a></li>
+                        <li><a href="{{route('aboutOcci')}}" target="_blank">Ocei সম্বন্ধে</a></li>
+                        <li><a href="{{asset('uploads/User Manual Complain.pdf')}}" target="_blank">ব্যবহার নির্দেশিকা</a></li>
                         <li><a href="#">সচরাচর জিজ্ঞাসা</a></li>
                         <li><a href="#">যোগাযোগ</a></li>
-                        <li><a href="#-">সাইটম্যাপ</a></li>
                     </ul>
                 </div>
 

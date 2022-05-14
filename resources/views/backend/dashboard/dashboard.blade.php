@@ -1,8 +1,8 @@
 @extends('backend.master')
 
-@section('title', 'Complainer Dashboard')
-@section('dashboard-title', 'Complainer Dashboard')
-@section('breadcrumb-title', 'Complainer Dashboard Information')
+@section('title', 'Admin Dashboard')
+@section('dashboard-title', 'Admin Dashboard')
+@section('breadcrumb-title', 'Admin Dashboard Information')
 
 @section('stylesheet')
     <!-- <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -45,7 +45,7 @@
           <div class="small-box bg-warning">
             <div class="inner">
               <h3>{{$totalCancelComplains}}</h3>
-              <p>Total Forwarded Complain</p>
+              <p>Total Forward Complain</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>

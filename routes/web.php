@@ -18,6 +18,7 @@ Route::get('/clear-cache', function() {
     return 'DONE'; //Return anything
 });
 use App\Http\Controllers\Frontend\ComplainController;
+use App\Http\Controllers\Backend\ComplainReportController;
 // Auth::routes();
 
 // Route::get('/', function () {
@@ -45,18 +46,22 @@ Route::middleware('admin')->group(function(){
 
     /////*************Archieved complain///////////
     Route::post('/archieved/complain','Backend\ComplainController@archievedComplain')->name('archievedComplain');
+    /////**************Report*************/////////
+    Route::match(['get','post'],'/complain-report',[ComplainReportController::class, 'allReports'])->name('complain.report');
+    Route::get('/generate-complain-pdf/{complain_id}', [ComplainReportController::class, 'generateComplainPdf'])->name('admin.generateComplainPdf');
 });
 
-
-/////**********************frontend**********************************
-//Route::get('/','Frontend\HomeController@index')->name('home');
-///*********************registration*******************
-//Route::get('/registration','Frontend\RegistrationController@register')->name('register');
-//Route::post('/register','Frontend\RegistrationController@storeRegister')->name('store.register');
 
 ///***************Complain*******************
 Route::get('/', 'Frontend\ComplainController@showComplainForm')->name('complain-form');
 Route::post('/complain-form','Frontend\ComplainController@storeComplain')->name('store.complain');
+Route::get('/about-occi','Frontend\ComplainController@aboutOcci')->name('aboutOcci');
+
+// send OTP to complainer
+Route::get('/complain-otp-form', 'Frontend\ComplainController@showComplainOtpForm')->name('showComplainOtpForm');
+Route::post('/otp-verifcation','Frontend\ComplainController@otpVerificationComplain')->name('otpVerificationComplain');
+
+
 ////***************Complain Tracking******************************/////
 //Route::post('/track-complain','Frontend\ComplainController@trackComplain')->name('track.complain');
 Route::match(['get','post'],'track-complain',[ComplainController::class,'trackComplain'])->name('track.complain');

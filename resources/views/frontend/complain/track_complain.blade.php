@@ -50,15 +50,23 @@
                                       <td style="width: 10px">{{$trackComplains->tracking_number}}</td>
                                       <td style="width: 40px">
                                         {!!$trackComplains->admin_action!!} <br>
-                                        <a href="/uploads/{{$trackComplains->admin_file}}" class="btn btn-warning" download rel="noopener noreferrer" target="_blank">
+                                        @if($trackComplains->admin_file != '')
+                                           <a href="/uploads/{{$trackComplains->admin_file}}" class="btn btn-warning" download rel="noopener noreferrer" target="_blank">
                                             Download File <i class="fas fa-download"></i>
-                                        </a>
+                                          </a>
+                                        @else
+                                        No Any Files
+                                        @endif
                                       </td>
                                       <td style="width: 40px">
                                         {!!$trackComplains->employee_action!!} <br>
-                                        <a href="/uploads/{{$trackComplains->employee_file}}" class="btn btn-warning" download rel="noopener noreferrer" target="_blank">
+                                        @if($trackComplains->employee_file !='')
+                                           <a href="/uploads/{{$trackComplains->employee_file}}" class="btn btn-warning" download rel="noopener noreferrer" target="_blank">
                                             Download File <i class="fas fa-download"></i>
                                         </a>
+                                        @else
+                                        No Any Files
+                                        @endif
                                        </td>
                                       <td style="width: 10px">
                                         @if($trackComplains->status == 1)

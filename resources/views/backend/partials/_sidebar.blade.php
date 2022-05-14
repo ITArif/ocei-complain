@@ -59,6 +59,22 @@
           </li>
           @endif
 
+        @if(Session::get('page')=="report-complain")
+            <?php $active="active"; ?>
+        @else
+            <?php $active=""; ?>
+        @endif
+        @if(session('role_id') == 10 || session('role_id') == 1)
+          <li class="nav-item has-treeview">
+            <a href="{{route('complain.report')}}" class="nav-link {{$active}}">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                All Reports
+             </p>
+            </a>
+          </li>
+          @endif
+
 
           @if(Session::get('page')=="forwar-complain")
             <?php $active="active"; ?>
